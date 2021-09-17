@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library</title>
+        <link href="styles/style.css" rel="stylesheet">
+        <script src="scripts/main.js" defer></script>
+        <script src="https://kit.fontawesome.com/ae38fdb830.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <button id="new-book-btn">NEW BOOK</button>
+        <div id="new-book-form-container">
+            <form id="new-book-form">
+                <h2>New book</h2>
+
+                <label for="title">Title</label>
+                <input type="text" placeholder="Enter book title" name="title">
+                
+                <label for="author">Author</label>
+                <input type="text" placeholder="Enter author name" name="author">
+
+                <label for="pages">Pages</label>
+                <input type="text" placeholder="Enter number of pages" name="pages">
+
+                <label for="read">Read</label>
+                <input type="checkbox" name="read">
+
+                <button>Close</button>
+
+            </form>
+
+        </div>
+        <div>
+           <table id="books-table">
+            <tr id="table-header">
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read</th>
+            </tr>
+           </table>
+        </div>
+    </body>
+</html>
