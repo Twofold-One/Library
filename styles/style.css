@@ -20,7 +20,6 @@ body {
     width: 200px;
     bottom: 60%;
     display: none;
-    
 }
 
 #new-book-form {
@@ -42,4 +41,17 @@ label {
 
 #books-table, th, td {
     border: 1px solid;
+}
+
+#read-column {
+    text-align: center;
+    cursor: pointer;
+}
+
+#yes-icon {
+    color:green;
+}
+
+#no-icon {
+    color: red;
 }
