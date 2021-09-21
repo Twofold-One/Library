@@ -1,5 +1,11 @@
 let myLibrary = [];
 
+//parsing localStorage on page load
+window.addEventListener('load', () => {
+    localStorageGet();
+    displayBooks();
+});
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -79,6 +85,7 @@ function displayBooks() {
     }
     deleteBook();
     changeReadStatus();
+    localStorageSet();
 }
 
 function deleteBook() {
@@ -110,7 +117,6 @@ function changeReadStatus() {
 
     readStatus.forEach((status) => {
         status.addEventListener('click', (e) => {
-            console.log(e.target);
             bookIndex = e.target.getAttribute('data');
             myLibrary[bookIndex].readStatusChange();
             displayBooks();
@@ -142,6 +148,25 @@ function closeFormBtn() {
 closeFormBtn();
 
 
+//localStorage set
+function localStorageSet() {
+    myLibraryJSON = JSON.stringify(myLibrary);
+    localStorage.setItem('myLibrary',myLibraryJSON);
+}
+
+//localStorage get
+//more complex function which first gets JSON, parsing it,
+//iterating through the array of objects and assigning them
+//back Book.prototype, after that returning myLibrary
+function localStorageGet() {
+    myLibraryJSON = localStorage.getItem('myLibrary');
+    myLibraryParsed = JSON.parse(myLibraryJSON);
+    for (let i = 0; i < myLibraryParsed.length; i++) {
+        Object.setPrototypeOf(myLibraryParsed[i], Book.prototype);
+        myLibrary.push(myLibraryParsed[i]);
+    }
+    return myLibrary;
+}
 
 //Some legacy here
 

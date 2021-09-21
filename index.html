@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Library</title>
-        <link href="styles/style.css" rel="stylesheet">
-        <script src="scripts/main.js" defer></script>
-        <script src="https://kit.fontawesome.com/ae38fdb830.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <button id="new-book-btn">NEW BOOK</button>
-        <div id="new-book-form-container">
-            <form name="new-book-form" id="new-book-form">
-                <h2>New book</h2>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="scripts/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/ae38fdb830.js" crossorigin="anonymous"></script>
+</head>
+<header>
+    <h1>My Library</h1>
+    <p>List of my books</p>
+</header>
+
+<body>
+    <button id="new-book-btn">NEW BOOK</button>
+    <div id="new-book-form-container">
+        <form name="new-book-form" id="new-book-form">
+            <h3>New book</h2>
 
                 <label for="title">Title</label>
                 <input type="text" placeholder="Enter book title" name="title" id="title" required>
-                
+
                 <label for="author">Author</label>
                 <input type="text" placeholder="Enter author name" name="author" id="author" required>
 
@@ -28,18 +34,20 @@
 
                 <input type="button" value="Submit" name="submit" id="new-book-form-submit-btn">
                 <input type="button" value="Close" name="close" id="new-book-form-close-btn">
-            </form>
-        </div>
-        <div>
-           <table id="books-table">
+        </form>
+    </div>
+    <div id="table-container">
+        <table id="books-table">
             <tr id="table-header">
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                <th>Read</th>
-                <th></th>
+                <th id="th-read">Read</th>
+                <th id="th-delete"></th>
             </tr>
-           </table>
-        </div>
-    </body>
+        </table>
+    </div>
+    <button>Wipe library</button>
+</body>
+
 </html>

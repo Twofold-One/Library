@@ -4,6 +4,7 @@ html {
     padding: 0;
     font-family: sans-serif;
     font-size: 20px;
+    color: rgb(0, 0, 0);
 }
 
 body {
@@ -12,13 +13,30 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: linear-gradient(rgb(143, 143, 207), rgb(233, 106, 106));
+}
+
+header {
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(143, 143, 207);
+    background-image: url(https://www.detroitlabs.com/wp-content/uploads/2018/02/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    color: white;
+    opacity: 0.5;
+}
+
+header > h1, p {
+    opacity: 1;
 }
 
 #new-book-form-container {
-    border: 1px solid black;
+    border: 3px solid rgba(255, 255, 255, 0.541);
+    border-radius: 10px;
     position: fixed;
-    width: 200px;
-    bottom: 60%;
+    width: 300px;
+    /*bottom: 55%;*/
     display: none;
 }
 
@@ -26,21 +44,71 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 10px;
+    background-color: rgba(68, 62, 99, 1);
+    color: white;
+    font-size: 1.1em;
 }
+
 label {
     margin-top: 10px;
+
 }
 
 #new-book-btn {
     margin: 20px auto;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 1.3em;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+}
+
+#new-book-btn:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 10px rgb(111, 189, 202);
+}
+
+#delete-btn {
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 1em;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    background-color: rgb(250, 158, 158);
+}
+
+#delete-btn:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 10px rgb(111, 189, 202);
+}
+
+#table-container {
+    display: flex;
+    justify-content: center;
 }
 
 #books-table {
-    width: 100%;
+    margin: 20px auto;
+    width: 90vw;
+    max-width: 90%;
+    text-align: left;
+    vertical-align: middle;
+    color: whitesmoke;
+    border-collapse: collapse;
 }
 
-#books-table, th, td {
-    border: 1px solid;
+th, td {
+    border-bottom: 1px solid;
+    padding: 10px 20px;
+}
+
+#th-delete {
+    border: none;
+}
+
+#th-read, #th-delete {
+    text-align: center;
 }
 
 #read-column {
@@ -50,8 +118,32 @@ label {
 
 #yes-icon {
     color:green;
+    font-size: 2em;
 }
 
 #no-icon {
     color: red;
+    font-size: 2em;
 }
+
+input[type=button] {
+    color: black;
+    margin-top: 10px;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+input[type=button]:hover {
+    box-shadow: 1px 1px 10px rgb(111, 189, 202);
+}
+
+input[type=text] {
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:hover {
+    box-shadow: 1px 1px 10px rgb(111, 189, 202);
+}
+
+
