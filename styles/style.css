@@ -31,7 +31,7 @@ body {
     border: 3px solid rgba(255, 255, 255, 0.541);
     border-radius: 10px;
     position: fixed;
-    top: 50vw;
+    top: 20%;
     width: 300px;
     display: none;
     z-index: 10;
