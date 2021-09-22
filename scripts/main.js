@@ -76,11 +76,13 @@ function displayBooks() {
         readStatusDisplay(myLibrary[i]['read'], tableBookReadColumn, i);
         tableBookRow.appendChild(tableBookReadColumn);
 
+        const tableBookDeleteColumn = document.createElement('td');
         const tableBookDeleteBtn = document.createElement('button');
         tableBookDeleteBtn.textContent = 'DELETE';
         tableBookDeleteBtn.setAttribute('id', 'delete-btn');
         tableBookDeleteBtn.setAttribute('data', `${i}`);
-        tableBookRow.appendChild(tableBookDeleteBtn);
+        tableBookDeleteColumn.appendChild(tableBookDeleteBtn);
+        tableBookRow.appendChild(tableBookDeleteColumn);
         booksTable.appendChild(tableBookRow);
     }
     deleteBook();
@@ -159,22 +161,40 @@ function localStorageSet() {
 //iterating through the array of objects and assigning them
 //back Book.prototype, after that returning myLibrary
 function localStorageGet() {
-    myLibraryJSON = localStorage.getItem('myLibrary');
-    myLibraryParsed = JSON.parse(myLibraryJSON);
-    for (let i = 0; i < myLibraryParsed.length; i++) {
+    if(localStorage.length === 0) {
+        return myLibrary = [];
+    } else {
+        myLibraryJSON = localStorage.getItem('myLibrary');
+        myLibraryParsed = JSON.parse(myLibraryJSON);
+        
+        for (let i = 0; i < myLibraryParsed.length; i++) {
         Object.setPrototypeOf(myLibraryParsed[i], Book.prototype);
         myLibrary.push(myLibraryParsed[i]);
+        }
     }
     return myLibrary;
 }
 
-//Some legacy here
+//localStorage clear
+function localStorageClear() {
+    myLibrary = [];
+    localStorage.clear();
+}
 
-//if (myLibrary[i]['read'] === true) {
-        //    tableBookReadColumn.innerHTML = '<i class="fas fa-check"></i>';
-        //} else {
-        //    tableBookReadColumn.innerHTML = '';
-        //}
-        //tableBookReadColumn.textContent = myLibrary[i]['read'];
+//wipe library function
+function wipeLibrary() {
+    const wipeBtn = document.querySelector('#wipe-btn');
 
+    wipeBtn.addEventListener('click', () => {
+        if (window.confirm('Are you sure you want to wipe your Library?')) {
+            localStorageClear();
+            displayBooks();
+        }
+    });
+}
+wipeLibrary();
 
+/*
+The Principles of Object-Oriented JavaScript	Nicholas C. Zakas	120		DELETE
+Grokking Algorithms An illustrated guide for programmers and other curious people	Aditya Y. Bhargava	256 pages
+*/

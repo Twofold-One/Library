@@ -9,13 +9,15 @@
     <script src="scripts/main.js" defer></script>
     <script src="https://kit.fontawesome.com/ae38fdb830.js" crossorigin="anonymous"></script>
 </head>
-<header>
-    <h1>My Library</h1>
-    <p>List of my books</p>
-</header>
-
 <body>
-    <button id="new-book-btn">NEW BOOK</button>
+    <div class="header">
+        <h1>My Library</h1>
+        <p> List of my books</p>
+    </div>
+    
+    <div class="containter">
+        <button id="new-book-btn">NEW BOOK</button>
+    </div>
     <div id="new-book-form-container">
         <form name="new-book-form" id="new-book-form">
             <h3>New book</h2>
@@ -47,7 +49,10 @@
             </tr>
         </table>
     </div>
-    <button>Wipe library</button>
+    <div class="containter">
+        <button id="wipe-btn">Wipe library</button> 
+    </div>
+    
 </body>
 
 </html>
