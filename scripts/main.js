@@ -6,22 +6,24 @@ window.addEventListener('load', () => {
     displayBooks();
 });
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-Book.prototype.info = function () {
-    return (title + ' by ' + author + ', ' + pages + ', ' + read);
-}
+    info() {
+        return (title + ' by ' + author + ', ' + pages + ', ' + read);
+    }
 
-Book.prototype.readStatusChange = function() {
-    if (this.read === true) {
-        this.read = false;
-    } else {
-        this.read = true;
+    readStatusChange() {
+        if (this.read === true) {
+            this.read = false;
+        } else {
+            this.read = true;
+        }     
     }
 }
 
